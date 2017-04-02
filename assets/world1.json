@@ -1,0 +1,44 @@
+{ "height":50,
+ "layers":[
+        {
+         "compression":"zlib",
+         "data":"eJzt0rEKwCAMAFEr2P\/\/5C4ZSiFSweJVbrjJQPLAWkqpnY6oN3Ofe9ai7H1Wb+\/ToUOHDh3\/SAcrHax0sNLBSgcrHax0MGpJq++iO7J9szqjr\/fs4tjlX+kY86y+Q4cOYjpY6WClg5UOVjpY6WClg5UOVjrGugAnDg2Z",
+         "encoding":"base64",
+         "height":50,
+         "name":"Tile Layer 1",
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":true,
+         "width":50,
+         "x":0,
+         "y":0
+        }],
+ "nextobjectid":1,
+ "orientation":"orthogonal",
+ "properties":
+    {
+
+    },
+ "renderorder":"right-down",
+ "tileheight":32,
+ "tilesets":[
+        {
+         "firstgid":1,
+         "image":"worldTiles.png",
+         "imageheight":128,
+         "imagewidth":128,
+         "margin":0,
+         "name":"worldTiles",
+         "properties":
+            {
+
+            },
+         "spacing":0,
+         "tilecount":16,
+         "tileheight":32,
+         "tilewidth":32
+        }],
+ "tilewidth":32,
+ "version":1,
+ "width":50
+}
