@@ -41,7 +41,6 @@ loadScene = {
                                  fill: '#ffffff'});
 
         // Load images
-        // game.load.tilemap('world1', 'assets/world1.json', null, Phaser.Tilemap.TILED_JSON);
         this.load.tilemapTiledJSON('world1', 'assets/world1.json');
         this.load.image('tiles', 'assets/worldTiles.png');
         this.load.image('player', 'assets/circle-red.png');
@@ -77,8 +76,6 @@ titleScene = {
                                  {font: '30px Courier',
                                   fill: '#ffffff'});
 
-        // wKey = game.input.keyboard.addKey(Phaser.Keyboard.W);
-        // wKey.onDown.addOnce(this.start, this);
         this.input.keyboard.on('keydown_W', this.start, this);
     },
     update: () => {
@@ -110,40 +107,20 @@ playScene = {
 
         // Player
         // this.player = this.add.sprite(150, game.world.height - 150, 'player');
-        // this.player = this.add.sprite(150, this.height - 150, 'player');
         this.player = this.physics.add.sprite(150, this.height - 150, 'player');
-        // this.player.anchor.setTo(0.5, 0.5);
         this.playerSpeed = 300;
+        // this.player.anchor.setTo(0.5, 0.5);
 
         // game.physics.arcade.enable(this.player);
         // game.camera.follow(this.player);
 
-
-
         // Controls
-
-        // this.key = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
-
-        // this.cursors = this.input.keyboard.addKeys({
-        //     'up': Phaser.Keyboard.W,
-        //     'down': Phaser.Keyboard.S,
-        //     'left': Phaser.Keyboard.A,
-        //     'right': Phaser.Keyboard.D,
-        //     'interact': Phaser.Keyboard.SPACEBAR
-        // });
         this.cursors = {};
         this.cursors.up = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
         this.cursors.down = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
         this.cursors.left = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
         this.cursors.right = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
         this.cursors.interact = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACEBAR);
-        // this.cursors = this.input.keyboard.addKeys({
-        //     'up': Phaser.Input.Keyboard.KeyCodes.W,
-        //     'down': Phaser.Input.Keyboard.KeyCodes.S,
-        //     'left': Phaser.Input.Keyboard.KeyCodes.A,
-        //     'right': Phaser.Input.Keyboard.KeyCodes.D,
-        //     'interact': Phaser.Input.Keyboard.KeyCodes.SPACEBAR
-        // });
     },
     update: function() {
         'use strict';
@@ -156,8 +133,10 @@ playScene = {
         // game.physics.arcade.overlap(this.player, this.enemies,
         //                             this.end, null, this);
 
-        this.player.body.velocity.x = 0;
-        this.player.body.velocity.y = 0;
+        // this.player.body.velocity.x = 0;
+        // this.player.body.velocity.y = 0;
+        this.player.body.setVelocityX(0);
+        this.player.body.setVelocityY(0);
         // console.log(this.cursors.right);
         if (this.cursors.right.isDown) {
             console.log('RIGHT');
@@ -166,17 +145,14 @@ playScene = {
         else if (this.cursors.left.isDown) {
             console.log('LEFT');
             this.player.body.setVelocityX(-this.playerSpeed);
-            // this.player.body.velocity.x = -this.playerSpeed;
         }
         else if (this.cursors.up.isDown) {
             console.log('UP');
             this.player.body.setVelocityY(-this.playerSpeed);
-            // this.player.body.velocity.y = -this.playerSpeed;
         }
         else if (this.cursors.down.isDown) {
             console.log('DOWN');
             this.player.body.setVelocityY(this.playerSpeed);
-            // this.player.body.velocity.y = this.playerSpeed;
         }
 
         if (this.cursors.interact.isDown) {
@@ -211,8 +187,6 @@ endScene = {
                                  {font: '30px Courier',
                                   fill: '#ffffff'});
 
-        // wKey = game.input.keyboard.addKey(Phaser.Keyboard.W);
-        // wKey.onDown.addOnce(this.restart, this);
         this.input.keyboard.on('keydown_W', this.restart, this);
     },
     extend: {
