@@ -96,8 +96,6 @@ playScene = {
         'use strict';
         var tileset;
 
-        // this.keyboard = game.input.keyboard;
-
         // Map
         this.map = this.add.tilemap('world1');
         tileset = this.map.addTilesetImage('worldTiles', 'tiles');
@@ -107,37 +105,40 @@ playScene = {
 
         // Player
         // this.player = this.add.sprite(150, game.world.height - 150, 'player');
-        this.player = this.physics.add.sprite(150, this.height - 150, 'player');
+        this.player = this.physics.add.sprite(150, 150, 'player');
+        this.player.setBounce(0.2);
+        this.player.setCollideWorldBounds(true);
         this.playerSpeed = 300;
-        // this.player.anchor.setTo(0.5, 0.5);
 
-        // game.physics.arcade.enable(this.player);
+        this.physics.add.collider(this.player, this.walls);
+
         // game.camera.follow(this.player);
+        this.cameras.main.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
+        this.cameras.main.startFollow(this.player);
 
         // Controls
-        this.cursors = {};
-        this.cursors.up = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
-        this.cursors.down = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
-        this.cursors.left = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
-        this.cursors.right = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
-        this.cursors.interact = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACEBAR);
+        this.cursors = this.input.keyboard.addKeys({
+            'up': Phaser.Input.Keyboard.KeyCodes.W,
+            'down': Phaser.Input.Keyboard.KeyCodes.S,
+            'left': Phaser.Input.Keyboard.KeyCodes.A,
+            'right': Phaser.Input.Keyboard.KeyCodes.D,
+            'interact': Phaser.Input.Keyboard.KeyCodes.SPACE
+        });
+
+        // this.physics.add.collider(this.enemies, this.walls);
+        // this.physics.add.collider(this.enemies, this.enemies);
+        // this.physics.add.overlap(this.player, this.enemies,
+        //                          this.end, null, this);
+
     },
     update: function() {
         'use strict';
 
-        // console.log('[PLAY] update');
+        console.log('[PLAY] update');
 
-        this.physics.add.collider(this.player, this.walls);
-        // game.physics.arcade.collide(this.player, this.walls);
-        // game.physics.arcade.collide(this.enemies, this.walls);
-        // game.physics.arcade.overlap(this.player, this.enemies,
-        //                             this.end, null, this);
-
-        // this.player.body.velocity.x = 0;
-        // this.player.body.velocity.y = 0;
         this.player.body.setVelocityX(0);
         this.player.body.setVelocityY(0);
-        // console.log(this.cursors.right);
+
         if (this.cursors.right.isDown) {
             console.log('RIGHT');
             this.player.body.setVelocityX(this.playerSpeed);
