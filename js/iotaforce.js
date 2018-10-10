@@ -99,12 +99,10 @@ playScene = {
         // Map
         this.map = this.add.tilemap('world1');
         tileset = this.map.addTilesetImage('worldTiles', 'tiles');
-        // this.backgroundLayer = this.map.createLayer(0);
         this.backgroundLayer = this.map.createStaticLayer('backgroundLayer', tileset);
         // this.backgroundLayer.resizeWorld();
 
         // Player
-        // this.player = this.add.sprite(150, game.world.height - 150, 'player');
         this.player = this.physics.add.sprite(150, 150, 'player');
         this.player.setBounce(0.2);
         this.player.setCollideWorldBounds(true);
@@ -112,7 +110,6 @@ playScene = {
 
         this.physics.add.collider(this.player, this.walls);
 
-        // game.camera.follow(this.player);
         this.cameras.main.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
         this.cameras.main.startFollow(this.player);
 
@@ -217,7 +214,7 @@ const gameConfig = {
             y: -200
         }
     },
-    scene: [ bootScene, loadScene, titleScene, playScene, endScene ]
+    scene: [bootScene, loadScene, titleScene, playScene, endScene]
 };
 
 game = new Phaser.Game(gameConfig);
