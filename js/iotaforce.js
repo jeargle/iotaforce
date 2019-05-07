@@ -1,4 +1,4 @@
-var score, bootScene, loadScene, titleScene, playScene, endScene, game
+let score, bootScene, loadScene, titleScene, playScene, endScene, game
 
 score = 0
 
@@ -34,7 +34,7 @@ loadScene = {
     },
     preload: function() {
         'use strict'
-        var loadLbl
+        let loadLbl
 
         loadLbl = this.add.text(80, 160, 'loading...',
                                 {font: '30px Courier',
@@ -67,7 +67,7 @@ titleScene = {
     },
     create: function() {
         'use strict'
-        var nameLbl, startLbl
+        let nameLbl, startLbl
 
         nameLbl = this.add.text(80, 160, 'IOTA FORCE',
                                 {font: '50px Courier',
@@ -94,7 +94,7 @@ playScene = {
     key: 'play',
     create: function() {
         'use strict'
-        var tileset
+        let tileset
 
         // Map
         this.map = this.add.tilemap('world1')
@@ -173,7 +173,7 @@ playScene = {
 endScene = {
     create: function() {
         'use strict'
-        var scoreLbl, nameLbl, startLbl, wKey
+        let scoreLbl, nameLbl, startLbl, wKey
 
         scoreLbl = this.add.text(600, 10, 'Score: ' + score,
                                  {font: '30px Courier',
