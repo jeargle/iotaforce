@@ -16,8 +16,6 @@ class BootScene extends Phaser.Scene {
     }
 
     create() {
-        'use strict'
-
         game.scene.start('load')
         game.scene.remove('boot')
     }
@@ -37,7 +35,6 @@ class LoadScene extends Phaser.Scene {
     }
 
     preload() {
-        'use strict'
         let loadLbl
 
         loadLbl = this.add.text(80, 160, 'loading...',
@@ -53,7 +50,6 @@ class LoadScene extends Phaser.Scene {
     }
 
     create() {
-        'use strict'
         game.scene.start('title')
         game.scene.remove('load')
     }
@@ -77,7 +73,6 @@ class TitleScene extends Phaser.Scene {
     }
 
     create() {
-        'use strict'
         let nameLbl, startLbl
 
         nameLbl = this.add.text(80, 160, 'IOTA FORCE',
@@ -95,7 +90,6 @@ class TitleScene extends Phaser.Scene {
     }
 
     start() {
-        'use strict'
         console.log('[TITLE] start')
         game.scene.switch('title', 'play')
     }
@@ -107,7 +101,6 @@ class PlayScene extends Phaser.Scene {
     }
 
     create() {
-        'use strict'
         let tileset
 
         // Map
@@ -144,8 +137,6 @@ class PlayScene extends Phaser.Scene {
     }
 
     update() {
-        'use strict'
-
         console.log('[PLAY] update')
 
         this.player.body.setVelocityX(0)
@@ -174,12 +165,10 @@ class PlayScene extends Phaser.Scene {
     }
 
     interact() {
-        'use strict'
         console.log('[PLAY] INTERACT')
     }
 
     end() {
-        'use strict'
         console.log('[PLAY] end')
         game.scene.switch('play', 'end')
     }
@@ -191,7 +180,6 @@ class EndScene extends Phaser.Scene {
     }
 
     create() {
-        'use strict'
         let scoreLbl, nameLbl, startLbl, wKey
 
         scoreLbl = this.add.text(600, 10, 'Score: ' + score,
@@ -208,7 +196,6 @@ class EndScene extends Phaser.Scene {
     }
 
     restart() {
-        'use strict'
         game.scene.switch('end', 'title')
     }
 }
