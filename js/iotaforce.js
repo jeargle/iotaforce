@@ -106,7 +106,7 @@ class PlayScene extends Phaser.Scene {
         // Map
         this.map = this.add.tilemap('world1')
         tileset = this.map.addTilesetImage('worldTiles', 'tiles')
-        this.backgroundLayer = this.map.createStaticLayer('backgroundLayer', tileset)
+        this.backgroundLayer = this.map.createLayer('backgroundLayer', tileset)
         // this.backgroundLayer.resizeWorld()
 
         // Player
