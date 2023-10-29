@@ -210,10 +210,10 @@ const gameConfig = {
         default: 'arcade',
         arcade: {
             debug: true,
-            height: 775,
+            height: 1600,
             width: 1600,
             x: 0,
-            y: -200
+            y: 0
         }
     },
      scene: [
